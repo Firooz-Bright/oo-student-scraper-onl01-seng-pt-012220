@@ -9,11 +9,10 @@ class Scraper
      student_prop={}
      student_all_profiles = doc.css(".student-card a")
     
-    student_all_profiles.collect do |element|
-      
-       student_prop={:name => element.css(".student-name").text, 
-                     :location =>element.css(".student-location").text,
-                     :profile_url =>element.attr('href')}
+   student_all_profiles.collect do |element|
+   student_prop= {:name => element.css(".student-name").text, 
+                 :location =>element.css(".student-location").text,
+                 :profile_url =>element.attr('href')}
     end
     
   end
@@ -40,7 +39,7 @@ class Scraper
       profile_hash[:profile_quote] = doc.css(".vitals-container .vitals-text-container .profile-quote").text
       profile_hash[:bio] = doc.css(".bio-block.details-block .bio-content.content-holder .description-holder p").text
 
-       return profile_hash
+      return profile_hash
   end
 
 end
